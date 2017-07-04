@@ -31,7 +31,7 @@
         <link rel="stylesheet" href="/css/libs/animated/animate.css"/>
 
         <link rel="stylesheet" href="/css/style.css"/>
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
         <!-- Jquery -->
         <script src="/js/libs/jquery.min.js" type="text/javascript"></script>
         <!-- Bootstrap Jquery -->
