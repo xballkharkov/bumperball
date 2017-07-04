@@ -7,8 +7,16 @@
 @section('content')
     <!--Main-->
     <main>
-        <section class="main-info">
+        <div class="main-info">
             <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a class="order-add-button" href="#" data-toggle="modal" data-target="#add-order">Заказать игру</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a class="order-add-button" href="#" data-toggle="modal" data-target="#add-callback">Перезвоните мне</a>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-sm-12 text-container">
@@ -18,7 +26,7 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <div class="slider-bg hidden-xs">
             <div class="container">

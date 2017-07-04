@@ -16,7 +16,7 @@
 
                                             </div>
                                         </a>
-                                        <a href="#" class="social-box" title="twitter" target="_blank">
+                                        {{--<a href="#" class="social-box" title="twitter" target="_blank">
                                             <div class="icon icon-twitter">
 
                                             </div>
@@ -25,7 +25,7 @@
                                             <div class="icon icon-googleplus">
 
                                             </div>
-                                        </a>
+                                        </a>--}}
                                         <a href="#" class="social-box" title="instagram" target="_blank">
                                             <div class="icon icon-instagram">
 
