@@ -9079,6 +9079,7 @@ footer .bottom-block .design a {
 }
 .lp-vape .point-block .inner .content .image img {
   width: 100%;
+  border-radius: 20px;
 }
 .lp-vape .point-block .inner.price-block .content .image img {
   width: auto;
@@ -9227,4 +9228,14 @@ footer .bottom-block .design a {
   font-size: 18px;
   font-weight: bold;
   margin-right: 10px;
+}
+
+.inner .content .image:after {
+    box-shadow: 0 0 100px #fff inset;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
