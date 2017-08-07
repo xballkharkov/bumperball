@@ -33,37 +33,13 @@
                 <div class="" style="float: left; height: 600px; width: 1370px;">
                     <div id="main-carousel" class="owl-carousel owl-theme">
                         <div class="item">
+                            <img src="/img/lp_vape/slider/bunner-1.jpg" />
+                        </div>
+                        <div class="item">
                             <img src="/img/lp_vape/slider/slider-12.png" />
                         </div>
                         <div class="item">
-                            <img src="/img/lp_vape/slider/slider-1.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-2.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-3.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-4.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-5.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-6.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-7.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-8.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-9.png" />
-                        </div>
-                        <div class="item">
-                            <img src="/img/lp_vape/slider/slider-10.png" />
+                            <img src="/img/lp_vape/slider/bunner-2.jpg" />
                         </div>
                     </div>
                 </div>
