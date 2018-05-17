@@ -11,6 +11,10 @@ body {
   color: #333;
   background: #fff;
 }
+body, html {
+    height: 100%;
+    min-height: 100%;
+}
 h1,
 h2,
 h3,
@@ -2598,6 +2602,7 @@ header .header-top {
   position: absolute;
   z-index: 100;
   width: 85%;
+  height: 40px;
   left: 15%;
 }
 header .header-top:after {
@@ -2829,6 +2834,7 @@ header .header-top .navbar-left .social-btn .social-box .icon {
   height: 26px;
   line-height: 24px;
   text-align: center;
+  display: block;
   background: url(../img/theme/icons.png) no-repeat 0 0;
   border: 1px solid #323232;
   border-radius: 15%;
@@ -2931,12 +2937,12 @@ header .main-menu li.logo .inner a {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   header .main-menu li.logo .inner a {
-    padding: 60px 0 20px;
+    padding: 0px 0 20px;
   }
 }
 @media (max-width: 767px) {
   header .main-menu li.logo .inner a {
-    padding: 27px 0 16px;
+    padding: 3px 0 16px;
   }
 }
 header .main-menu li.logo .inner a img {
@@ -7232,6 +7238,8 @@ footer {
   background: #323232;
   z-index: 103;
   position: relative;
+  margin-top: -62px;
+  height: 62px;
 }
 footer .block-news {
   margin-top: -40px;
@@ -7633,7 +7641,7 @@ footer .bottom-block .design a {
   }
 }
 .lp-page {
-  overflow: hidden;
+  min-height: 100%;
 }
 .lp-page section {
   position: relative;
@@ -7642,7 +7650,6 @@ footer .bottom-block .design a {
 }
 .lp-page header {
   background: transparent;
-  position: absolute;
   top: 0;
   width: 100%;
   left: 0;
@@ -7798,6 +7805,7 @@ footer .bottom-block .design a {
   background: linear-gradient(to bottom, #f4f6fb 0%, #ffffff 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f6fb', endColorstr='#ffffff', GradientType=0);
   position: relative;
+  z-index: 10;
   min-height: 200px;
 }
 .lp-page .description-product {
@@ -9052,7 +9060,7 @@ footer .bottom-block .design a {
 .lp-vape .point-block .inner {
   position: relative;
   margin-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 10px;
 }
 @media (max-width: 767px) {
   .lp-vape .point-block .inner {
@@ -9079,7 +9087,6 @@ footer .bottom-block .design a {
 }
 .lp-vape .point-block .inner .content .image img {
   width: 100%;
-  border-radius: 20px;
 }
 .lp-vape .point-block .inner.price-block .content .image img {
   width: auto;
@@ -9164,20 +9171,29 @@ footer .bottom-block .design a {
   padding: 40px 0;
 }
 .header-top.scrolling .scroll-menu {
-  position: fixed;
-  background: #323232;
-  width: 100%;
-  top: 0px;
-  left: 0px;
+    position: fixed;
+    background: #323232;
+    width: 100%;
+    top: 0px;
+    left: 0px;
 }
 .header-top.scrolling .scroll-menu-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 10px;
 }
-.header-margin {
+/*.header-margin {
   margin-top: 100px;
   width: 100%;
+}    */
+.modal-header {
+    background-color: #323232;
+    color: #fff;
+}
+.modal-header button.close {
+    color: #fff; 
+    opacity: 1;
+    font-size: 24px;
 }
 .order-add-button {
   background-color: #12AFEC;
@@ -9238,4 +9254,100 @@ footer .bottom-block .design a {
     position: absolute;
     top: 0;
     width: 100%;
+}
+#message-block {
+    position: fixed;
+    width: 300px;
+    display: none;
+    color: #fff;
+    background-color: #323232;
+    padding: 10px;
+    top:10px;
+    z-index:99999;
+    left: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 2px #000;
+    font-size: 16px;
+}
+#error-block {
+    position: fixed;
+    width: 300px;
+    display: none;
+    color: red;
+    background-color: #FE9F00;
+    padding: 10px;
+    top:10px;
+    z-index:99999;
+    left: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 2px #000;
+    font-size: 16px;
+}
+
+/* Map */
+.marker_info {
+    width: 200px;
+    height: 125px;
+    padding: 10px;
+    border-radius: 3px;
+    text-align:center;
+    background: #FFF;
+    background: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 9999999;
+    font-family:'Montserrat', Arial, sans-serif; 
+}
+.marker_info .marker_img  {
+    height: 100px;
+    overflow: hidden;
+    background: url('../img/default.png') no-repeat center center; 
+    width: 100%;
+}
+.marker_info img {
+    display: block;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    width: 100%;
+}
+    .marker_info h3 {
+        padding: 0 15px;
+    }
+.marker_info h3 {
+    font-size:18px;
+    line-height:18px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+.marker_info span {
+    display: block;
+    padding: 0px 20px;
+    font-size: 12px;
+    line-height:16px;
+    color:#7a7f82;
+    margin-bottom:15px;
+}
+.marker_info:after{
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(255, 255, 255, 0.9);
+    border-width: 10px;
+    margin-top: -10px;
+}
+#map {
+    width: 100%;
+    min-height: 500px;
+    height: 500px;
 }

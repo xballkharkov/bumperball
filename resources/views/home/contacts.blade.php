@@ -1,8 +1,8 @@
 @extends('layouts.public')
 
-@section('title', 'Contacts')
-@section('description', 'Contacts')
-@section('keywords', 'Contacts')
+@section('title', 'Контакты')
+@section('description', 'Контакты Xball')
+@section('keywords', 'контакты bumperball харьков')
 
 @section('content')
     <!--Main-->
@@ -17,7 +17,16 @@
                     <h1 class="name pull-left">Контакты</h1>
                 </div>
                 <div class="row">
-
+                    <div class="col-xs-6"> 
+                        <br/>               
+                        <p>г. Харьков</p>
+                        <p>
+                            <b>Контактные телефоны:</b><br/>
+                            0994059722, 0734823238 - Николай  <br/>
+                            380995087807 - Руслан  <br><br>
+                            xballkh@gmail.com
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
