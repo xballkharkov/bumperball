@@ -81,5 +81,12 @@ return [
         ],
 
     ],
+     'contact' => [
+        'email' => 'xballkh@gmail.com',
+        'phones' => [
+            '380994059722',
+            '380995087807',
+        ]
+    ]
 
 ];

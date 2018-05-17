@@ -26,9 +26,9 @@ return [
     |
     */
 
-    'url' => 'http://bumperball.kh.ua',
+    'url' => 'https://xball.kh.ua',
 
-    'name' => 'Bumperball',
+    'name' => 'Xball',
 
     /*
     |--------------------------------------------------------------------------
@@ -138,6 +138,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        SleepingOwl\Admin\AdminServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -146,6 +147,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
         /*
          * Vendor Service Providers...
@@ -205,6 +207,16 @@ return [
          * Vendor Service Providers...
          */
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
+        
+        'Admin'         => SleepingOwl\Admin\Admin::class,
+        'AdminAuth'     => SleepingOwl\AdminAuth\Facades\AdminAuth::class,
+        'Column'        => SleepingOwl\Admin\Columns\Column::class,
+        'ColumnFilter'  => SleepingOwl\Admin\ColumnFilters\ColumnFilter::class,
+        'Filter'        => SleepingOwl\Admin\Filter\Filter::class,
+        'AdminDisplay'  => SleepingOwl\Admin\Display\AdminDisplay::class,
+        'AdminForm'     => SleepingOwl\Admin\Form\AdminForm::class,
+        'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
+        'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
 
     ],
 

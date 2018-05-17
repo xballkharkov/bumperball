@@ -3,7 +3,9 @@ $(function(){
 
     /** Scroll top btn Init
      **********************************************************/
-    var $scrollTopBtn = $('#scrollTop-btn');
+    var $scrollTopBtn = $('#scrollTop-btn'),
+        ajaxLouder = false;
+    
 
     //Scroll to Top Button
     $(window).scroll(function(){
@@ -172,7 +174,94 @@ $(function(){
     });
 
     recalculateTopBtn();
+    
+    $('#add-callback').off('click', 'button.btn-success').on('click', 'button.btn-success', function(){
+        if (!ajaxLouder) {
+            ajaxLouder = true;
+            
+            var parentModal = $('#add-callback');
+            
+            $.ajax({
+                url: '/add-callback',
+                type: 'get',
+                data: {user_phone: parentModal.find('input.user_phone').val()},
+                dataType: 'JSON',
+                beforeSend: function () {
+                    $('#ajax-loader').show();
+                },
+                complete: function () {
+                    $('#ajax-loader').hide();
+                    ajaxLouder = false;
+                },
+                success: function (json) {
+                    if (json.status == 'success') {
+                        parentModal.modal('hide'); 
+                        showMessage(json.message) 
+                    } else {
+                        showError(json.message);
+                    }
+                    console.log(json);
+                }
+
+            });
+        }
+    });
+    
+    $('#add-order').off('click', 'button.btn-success').on('click', 'button.btn-success', function(){
+        if (!ajaxLouder) {
+            ajaxLouder = true;
+            
+            var parentModal = $('#add-order');
+            
+            $.ajax({
+                url: '/add-order',
+                type: 'get',
+                data: {
+                    user_name: parentModal.find('input.user_name').val(),
+                    user_contact: parentModal.find('input.user_contact').val(),
+                    user_info: parentModal.find('textarea.user_info').val()
+                },
+                dataType: 'JSON',
+                beforeSend: function () {
+                    $('#ajax-loader').show();
+                },
+                complete: function () {
+                    $('#ajax-loader').hide();
+                    ajaxLouder = false;
+                },
+                success: function (json) {
+                    if (json.status == 'success') {
+                        parentModal.modal('hide'); 
+                        showMessage(json.message);
+                    } else {
+                        showError(json.message);
+                    }
+                    console.log(json);
+                }
+
+            });
+        }
+    });
 });
+
+function showMessage(massege) {
+    var mblock = $('#message-block');
+    mblock.text(massege);
+    mblock.slideDown();
+    setTimeout(function(){
+        mblock.slideUp();
+    }, 10000);
+}
+
+function showError(massege) {
+    var mblock = $('#error-block');
+    mblock.text(massege);
+    mblock.slideDown();
+    setTimeout(function(){
+        mblock.slideUp();
+    }, 5000);
+}
+
 
 $(document).mouseup(function (e){
     var search = $("header .header-search");
@@ -181,3 +270,204 @@ $(document).mouseup(function (e){
         $(".header-search .search-dropdown").removeClass("active");
     }
 });
+
+var Main = (function() {
+    var $document = $(document),
+        mainSelf = this,
+        log = function() {
+            if (console) {}
+        },
+        truncate = function(str, maxlength) {
+            if (str.length > maxlength) {
+                return str.slice(0, maxlength - 3) + '...';
+            }
+            return str;
+        },
+        router = {
+            'initMap': {
+                defaultOption: {
+                    mapObject: [],
+                    markers: [],
+                    centerLat: 49.99643,
+                    centerLon: 36.22415,
+                    markersData: [],
+                    marker: [],
+                    page: 2
+                },
+                compOptions: false,
+                init: function(options) {
+                    var tmp = $.extend({}, this);
+                    tmp.compOptions = $.extend({}, tmp.defaultOption, options);
+                    tmp.events();
+                },
+                events: function() {
+                    var self = this;
+                    var mapOptions = {
+                        zoom: 12,
+                        center: new google.maps.LatLng(self.compOptions.centerLat, self.compOptions.centerLon),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+                        mapTypeControl: false,
+                        mapTypeControlOptions: {
+                            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                            position: google.maps.ControlPosition.LEFT_CENTER
+                        },
+                        panControl: false,
+                        panControlOptions: {
+                            position: google.maps.ControlPosition.TOP_RIGHT
+                        },
+                        zoomControl: true,
+                        zoomControlOptions: {
+                            style: google.maps.ZoomControlStyle.LARGE,
+                            position: google.maps.ControlPosition.TOP_RIGHT
+                        },
+                        scrollwheel: false,
+                        scaleControl: false,
+                        scaleControlOptions: {
+                            position: google.maps.ControlPosition.TOP_LEFT
+                        },
+                        streetViewControl: true,
+                        streetViewControlOptions: {
+                            position: google.maps.ControlPosition.LEFT_TOP
+                        },
+                        styles: []
+                    };
+                    
+                    self.compOptions.mapObject = new google.maps.Map(document.getElementById('map'), mapOptions);
+                    
+                    //for (var key in self.compOptions.markersData) {
+                        
+                    self.initMarker(self.compOptions.markersData, 'stadium');
+                    //};
+                                        
+                    $(document).on('click', '.onmap', function() {
+                        var photoID = $(this).data('index');
+
+                        google.maps.event.trigger(self.compOptions.markers[photoID], 'click');
+                        
+                    });
+                    
+                    $(document).on('click', '.pager a', function() {
+                        self.loadMore($(this));
+                    });
+                },
+                
+                initMarker: function(itemMarker, key) {
+                    var self = this;
+                    itemMarker.forEach(function (item) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(item.location_latitude, item.location_longitude),
+                            map: self.compOptions.mapObject,
+                            icon: '/img/balls/football.png',
+                            animation: google.maps.Animation.DROP
+                        });
+
+                        if ('undefined' === typeof self.compOptions.markers[item.key])
+                            self.compOptions.markers[item.key] = [];
+                            
+                        self.compOptions.markers[item.key]= marker;
+                        
+                        google.maps.event.addListener(marker, 'click', (function () {
+                            self.closeInfoBox();
+                            self.getInfoBox(item).open(self.compOptions.mapObject, this);
+                            self.compOptions.mapObject.setCenter(new google.maps.LatLng(item.location_latitude, item.location_longitude));
+                        }));
+                    });
+                },
+                
+                loadMore: function(target) {
+                    var self = this;
+                    console.log(target, target.data('mod'));
+                    $.rex(target.data('mod'), target.data('act'), {task: target.data('task'), page: self.compOptions.page}, function(data) {
+                        if (!data.markers) {
+                            $('.pager').hide();
+                        }
+                        
+                        if (data.content) {
+                            $('.list-conteiner').append(data.content); 
+                            
+                            var markers = (jQuery.parseJSON(data.markers));
+        
+                            for (var key in markers) {
+                                self.initMarker(markers[key], key);
+                            }
+                            
+                            self.compOptions.page++;
+                        }
+                    });
+                },
+                
+                hideAllMarkers: function() {
+                    for (var key in self.compOptions.markers)
+                        self.compOptions.markers[key].forEach(function (marker) {
+                            marker.setMap(null);
+                        });
+                },
+
+                closeInfoBox: function() {
+                    $('div.infoBox').remove();
+                },
+
+                getInfoBox: function(item) {
+                    return new InfoBox({
+                        content:
+                        '<div class="marker_info" id="marker_info">' +
+                        '<h3>'+ item.name_point +'</h3>' +
+                        '<span>'+ item.description_point +'</span>' +
+                        '</div>',
+                        disableAutoPan: true,
+                        maxWidth: 0,
+                        pixelOffset: new google.maps.Size(40, -190),
+                        closeBoxMargin: '-20px 0 0',
+                        isHidden: false,
+                        pane: 'floatPane',
+                        enableEventPropagation: true
+                    });
+
+
+                },
+            },
+            init: function(option) {
+                for (var key in option) {
+                    var optionItem = option[key];
+                    for (var keyOption in optionItem) {
+                        var subItem = optionItem[keyOption];
+                        if ('object' == typeof(this[keyOption])) {
+                            var runObject = this[keyOption];
+                            if ('function' == typeof(runObject.init)) {
+                                runObject.init(subItem, this);
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        routerDefault = {
+            //'markReview': {},
+        },
+        addedInitRoute = function(route, data) {
+            for (var nameRoute in data) {
+                var t = {};
+                t[nameRoute] = data[nameRoute];
+                route.push(t);
+            }
+        };
+        
+    return {
+        addRouteObject: function(addRouter) {
+            router = $.extend({}, router, addRouter);
+        },
+        addRouteDefault: function(addDefault) {
+            routerDefault = $.extend({}, routerDefault, addDefault);
+        },
+        init: function(options) {
+            var defaults = {
+                    'route': []
+                },
+                options = $.extend({}, defaults, options);
+            addedInitRoute(options.route, routerDefault);
+            router.init(options.route)
+        }
+    }
+})();
+    

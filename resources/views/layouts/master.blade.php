@@ -4,10 +4,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>{{ config('app.name') }} - @yield('title')</title>
+        <title>@yield('title')</title>
 
         <meta name="description" content="@yield('description')" />
         <meta name="keywords" content="@yield('keywords')" />
+        
+        <meta content="website" property="og:type">
+        <meta content="Бампербол - футбол в шарах в Харькове" property="og:title">
+        <meta content="http://www.xball.kh.ua" property="og:url">
+        <meta content="http://www.xball.kh.ua/img/logos/bumber_ball_xball.jpg" property="og:image">
+        <meta content="www.xball.kh.ua" property="og:site_name">
+        <meta content="300" property="og:image:width">
+        <meta content="225" property="og:image:height">
+        
         <!--bootstrap css -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen" />
         <!--font-->
@@ -34,13 +43,16 @@
         <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
         <!-- Jquery -->
         <script src="/js/libs/jquery.min.js" type="text/javascript"></script>
-        <!-- Bootstrap Jquery -->
-        <script src="/js/libs/bootstrap.min.js" type="text/javascript"></script>
-        
-        <!-- Add fancyBox main JS and CSS files -->
-        <script type="text/javascript" src="/js/libs/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
-        <script type="text/javascript" src="/js/libs/fancybox/jquery.fancybox.js?v=2.1.4"></script>
         <link rel="stylesheet" type="text/css" href="/css/libs/fancybox/jquery.fancybox.css?v=2.1.4" media="screen" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112532937-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-112532937-1');
+        </script>
     </head>
     
     <body>
@@ -51,3 +63,10 @@
         @yield('layout')
     </body>
 </html>
+
+<!-- Bootstrap Jquery -->
+<script src="/js/libs/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Add fancyBox main JS and CSS files -->
+<script type="text/javascript" src="/js/libs/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="/js/libs/fancybox/jquery.fancybox.js?v=2.1.4"></script>
