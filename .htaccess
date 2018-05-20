@@ -1,3 +1,14 @@
+SetEnvIf Host dev.xball.kh.ua APP_ENV=developer
+SetEnvIf Host dev.xball.kh.ua DEVELOPER
+AuthType Basic
+AuthName "RexFramework Auth"
+AuthUserFile /home/websfree/xball.kh.ua/dev/.htpasswd
+Require valid-user
+Order allow,deny
+Allow from all
+Deny from env=DEVELOPER
+Satisfy any
+
 <ifModule mod_headers.c>
     # Все html и htm файлы будут храниться в кэше браузера один день
     <FilesMatch "\.(html|htm)$">

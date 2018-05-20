@@ -84,6 +84,8 @@
                         </div>
                     </div>
                 </div>
+                
+                @include('includes/calc')
             </div>
         </div>
 
