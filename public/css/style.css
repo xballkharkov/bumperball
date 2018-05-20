@@ -9351,3 +9351,20 @@ footer .bottom-block .design a {
     min-height: 500px;
     height: 500px;
 }
+
+/*Calculation start*/
+.calculation {
+    width: 100%;
+    height: 600px;
+    padding: 120px 15px 0;
+    background: url('../img/theme/calc.png');
+}
+.calculation .priceResult {
+    padding-top: 50px;
+    font-size: 32px;
+    font-weight: bold;
+}
+.calculation .priceResult div {
+    color: #23C1E3;
+}
+/*calculation end*/
