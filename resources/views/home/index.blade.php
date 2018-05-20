@@ -40,6 +40,9 @@
                 <div class="" style="float: left; height: 600px; width: 1370px;">
                     <div id="main-carousel" class="owl-carousel owl-theme">
                         <div class="item">
+                            @include('includes/calc')
+                        </div>
+                        <div class="item">
                             <img src="/img/lp_vape/slider/bunner-summer.jpg" alt="Лето, солнце и друзья - в Бампербол играть пора" />
                         </div>
                         <div class="item">
