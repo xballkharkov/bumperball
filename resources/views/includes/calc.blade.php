@@ -30,14 +30,21 @@
             <div class="form-check">
                 <input class="calc_price form-check-input" type="checkbox" value="" id="useVideo">
                 <label class="calc_price form-check-label" for="useVideo">
-                    Видеосъемка - 250 грн/ч
+                    Видеосъемка +250 грн/ч
                 </label>
             </div>
+            <div class="form-check">
+                <input class="calc_price form-check-input" type="checkbox" value="" id="yourStadium">
+                <label class="calc_price form-check-label" for="yourStadium">
+                    Ваше поле -300 грн/ч
+                </label>
+            </div>
+            <br>
             <button id="CalcPrice" type="button" class="btn btn-success" onClick="calcPrice()">Рассчитать стоимость</button>
         </div>
         <div class="col-sm-4 pt-4">
             <div id="priceResult" class="priceResult text-center">
-                Стоимость <div></div>
+                Стоимость <div> </div> 
             </div>
         </div>
     </div>
@@ -75,7 +82,10 @@
             }
             
             if (document.getElementById("useVideo").checked) {
-                price += 250;
+                price += (250 * userDuration);
+            }
+            if (document.getElementById("yourStadium").checked) {
+                price -= (300 * userDuration);
             }
             
             var priceResult = document.getElementById('priceResult').getElementsByTagName('div')[0];
