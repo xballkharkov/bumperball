@@ -51,9 +51,9 @@ Satisfy any
 #Options +FollowSymLinks
 RewriteEngine On
            
-RewriteRule ^css/(.*)$ /public/css/$1 [R=301,L]
-RewriteRule ^js/(.*)$ /public/js/$1 [R=301,L]
-RewriteRule ^img/(.*)$ /public/img/$1 [R=301,L]
+#RewriteRule ^css/(.*)$ /public/css/$1 [R=301,L]
+#RewriteRule ^js/(.*)$ /public/js/$1 [R=301,L]
+#RewriteRule ^img/(.*)$ /public/img/$1 [R=301,L]
 
 # Handle Front Controller...
 RewriteCond %{REQUEST_FILENAME} !-d

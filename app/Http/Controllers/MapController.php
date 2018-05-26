@@ -7,7 +7,7 @@ class MapController extends Controller
 {
     public function index()
     {
-        $itemGroup = DB::table('stadium')
+        $itemGroup = DB::table('stadiums')
             ->where("address", "!=", "''")
             ->where("lat", "!=", "''")
             ->orderby('lat', 'DESC')

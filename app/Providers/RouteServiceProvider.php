@@ -40,5 +40,26 @@ class RouteServiceProvider extends ServiceProvider
         $router->group(['namespace' => $this->namespace], function ($router) {
             require app_path('Http/routes.php');
         });
+        
+        $this->mapAdminRoutes($router);
     }
+    
+     /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes($router)
+    {
+        $router->group([
+            'namespace' => $this->namespace, 
+            'prefix' => 'admin',
+            'middleware' => ['admin']
+        ], function ($router) {
+            require app_path('Http/adminRoutes.php');
+        });
+    }
+
 }

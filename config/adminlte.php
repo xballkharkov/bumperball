@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'XBall',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Admin</b>XBall',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>XBall</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,15 +85,15 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/dashboard',
 
-    'logout_url' => 'logout',
+    'logout_url' => 'auth/logout',
 
     'logout_method' => null,
 
-    'login_url' => 'login',
+    'login_url' => 'auth/login',
 
-    'register_url' => 'register',
+    'register_url' => 'auth/register',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,21 +108,21 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        //'MAIN NAVIGATION',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Заказы',
+            'url'  => 'admin/xorders',
+            'icon'  => 'list',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
+            'text'        => 'Стадионы',
+            'url'         => 'admin/stadiums',
             'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            /*'label'       => 4,
+            'label_color' => 'success',*/
         ],
-        'ACCOUNT SETTINGS',
-        [
+        //'ACCOUNT SETTINGS',
+        /*[
             'text' => 'Profile',
             'url'  => 'admin/settings',
             'icon' => 'user',
@@ -169,8 +169,8 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        'LABELS',
+        ],     */
+        /*'LABELS',
         [
             'text'       => 'Important',
             'icon_color' => 'red',
@@ -182,7 +182,7 @@ return [
         [
             'text'       => 'Information',
             'icon_color' => 'aqua',
-        ],
+        ],   */
     ],
 
     /*
@@ -218,7 +218,7 @@ return [
 
     'plugins' => [
         'datatables' => true,
-        'select2'    => true,
-        'chartjs'    => true,
+        /*'select2'    => true,
+        'chartjs'    => true,  */
     ],
 ];

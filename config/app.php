@@ -138,7 +138,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        SleepingOwl\Admin\AdminServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -153,7 +152,7 @@ return [
          * Vendor Service Providers...
          */
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-        Frozennode\Administrator\AdministratorServiceProvider::class,
+        //Frozennode\Administrator\AdministratorServiceProvider::class,
 
     ],
 
@@ -208,16 +207,6 @@ return [
          */
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         
-        'Admin'         => SleepingOwl\Admin\Admin::class,
-        'AdminAuth'     => SleepingOwl\AdminAuth\Facades\AdminAuth::class,
-        'Column'        => SleepingOwl\Admin\Columns\Column::class,
-        'ColumnFilter'  => SleepingOwl\Admin\ColumnFilters\ColumnFilter::class,
-        'Filter'        => SleepingOwl\Admin\Filter\Filter::class,
-        'AdminDisplay'  => SleepingOwl\Admin\Display\AdminDisplay::class,
-        'AdminForm'     => SleepingOwl\Admin\Form\AdminForm::class,
-        'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
-        'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
-
     ],
 
 ];

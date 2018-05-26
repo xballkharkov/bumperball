@@ -114,7 +114,7 @@ class AuthController extends Controller
             $this->incrementLoginAttempts($request);
         }
 
-        return redirect('auth/admin')
+        return redirect('admin/dashboard')
             ->withInput($request->only($this->loginUsername(), 'remember'))
             ->withErrors([
                 $this->loginUsername() => $this->getFailedLoginMessage(),
@@ -134,6 +134,6 @@ class AuthController extends Controller
             $this->clearLoginAttempts($request);
         }
 
-        return redirect()->intended('admin');
+        return redirect('admin/dashboard');
     }
 }

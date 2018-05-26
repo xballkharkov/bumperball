@@ -9,8 +9,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SendSMS;
-use App\Xorder;
+use App\Models\SendSMS;
+use App\Models\Xorder;
 use Config;
 
 class OrderController extends Controller
