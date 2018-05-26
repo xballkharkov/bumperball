@@ -15,15 +15,13 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/price', 'HomeController@price')->name('price');
 Route::get('/contacts', 'HomeController@contacts')->name('contacts');
-Route::get('/gallery', 'GalleryController@index')->name('gallery');
-Route::get('/video', 'VideoController@index')->name('video');
-Route::get('/promo', 'PromoController@index')->name('promo');
+//Route::get('/gallery', 'GalleryController@index')->name('gallery');
+//Route::get('/video', 'VideoController@index')->name('video');
+//Route::get('/promo', 'PromoController@index')->name('promo');
 
 Route::get('/add-order', ['as' => 'addOrder', 'uses' => 'OrderController@addOrder']);
 Route::get('/add-callback', ['as' => 'addCallback', 'uses' => 'OrderController@addCallback']);
-//Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/map', 'MapController@index')->name('map');
-Route::get('/xorders', ['as' => 'adminOrders', 'uses' => 'UserController@index']);
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', 'Auth\AuthController@getLogin');
@@ -32,17 +30,27 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('admin', 'Auth\AuthController@postAdminLogin');
     Route::get('logout', 'Auth\AuthController@getLogout');
 
-    Route::get('register', 'Auth\AuthController@getRegister');
-    Route::post('register', 'Auth\AuthController@postRegister');
+    //Route::get('register', 'Auth\AuthController@getRegister');
+    //Route::post('register', 'Auth\AuthController@postRegister');
 });
+   
+Route::get('/admin', function () {
+    return redirect('/auth/login');
+});
+/*Route::group(['prefix' => 'admin'], function () {
+    Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Admin\Auth\LoginController@login');          
+    Route::get('logout', 'Admin\Auth\LoginController@logout'); 
+});*/ 
 
-Route::group(['before' => 'guest.admin', 'as' => 'admin::'], function () {
+
+/*Route::group(['before' => 'guest.admin', 'as' => 'admin::'], function () {
     Route::get('auth/login', function () {
         return View::make('user.login');
     })->name('login');
 
     Route::post('auth/login', 'UserController@adminLogin');
-});
+});  */
 
 /*Route::group(['prefix' => 'admin', 'middleware' => 'menu.admin'], function () {
     Route::get('dashboard', function () {

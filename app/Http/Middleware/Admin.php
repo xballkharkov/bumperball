@@ -3,9 +3,23 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Contracts\Auth\Guard;
 
 class Admin
 {
+    protected $auth;
+
+    /**
+     * Create a new filter instance.
+     *
+     * @param  Guard  $auth
+     * @return void
+     */
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+    
     /**
      * Handle an incoming request.
      *
@@ -15,10 +29,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        /*if ( Auth::check() && Auth::user()->isAdmin()==true )
-        {     */
+        
+        if ($this->auth->check())
+        {     
             return $next($request);
-        /*}
-        return redirect('/'); */
+        }
+
+        return redirect('/'); 
     }
 }
