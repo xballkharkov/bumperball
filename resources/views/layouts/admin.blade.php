@@ -29,7 +29,7 @@
         </style>
     </head>
     
-    <body>
+    <body>      
         <div class="container container-fluid">
             <div class="row vertical-center-row">
                 <div class="col-md-4 col-md-offset-4">
