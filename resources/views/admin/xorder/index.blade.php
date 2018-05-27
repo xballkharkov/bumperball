@@ -11,7 +11,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-body">
-                    <table id="xorderIndex" class="table table-bordered table-hover defaultIndexTable">
+                    <table id="xorderIndex" class="table table-bordered table-hover defaultIndexTable" data-page-length="25">
                         <thead>
                             <tr>
                                 <td>ID</td>            

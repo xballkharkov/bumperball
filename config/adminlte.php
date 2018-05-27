@@ -121,6 +121,11 @@ return [
             /*'label'       => 4,
             'label_color' => 'success',*/
         ],
+        [
+            'text'        => 'Страницы',
+            'url'         => 'admin/pages',
+            'icon'        => 'book',
+        ],
         //'ACCOUNT SETTINGS',
         /*[
             'text' => 'Profile',

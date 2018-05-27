@@ -32,5 +32,10 @@
                 }
             }
         });
-    })
+    });
+    
+    //Replace the <textarea id="editorContent"> with a CKEditor
+    // instance, using default configuration. 
+    //CKEDITOR.replace('editorContent');
+    $('.editorContent').wysihtml5()
 });

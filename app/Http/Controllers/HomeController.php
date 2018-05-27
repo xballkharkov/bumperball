@@ -8,22 +8,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home.index');
-    }
-
-    public function search()
-    {
-        return view('home.search');
+        return view('home.index')->with([
+            'meta' => Page::getPageByAlias('home')
+        ]);
     }
 
     public function faq()
     {
-        return view('home.faq');
+        return view('home.faq')->with([
+            'meta' => Page::getPageByAlias('faq')
+        ]);
     }
 
     public function price()
@@ -33,6 +33,8 @@ class HomeController extends Controller
 
     public function contacts()
     {
-        return view('home.contacts');
+        return view('home.contacts')->with([
+            'meta' => Page::getPageByAlias('contact')
+        ]);
     }
 }
