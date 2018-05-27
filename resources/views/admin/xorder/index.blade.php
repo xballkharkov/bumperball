@@ -11,7 +11,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-body">
-                    <table id="xorderIndex" class="table table-bordered table-hover defaultIndexTable">
+                    <table id="xorderIndex" class="table table-bordered table-hover defaultIndexTable" data-page-length="25">
                         <thead>
                             <tr>
                                 <td>ID</td>            
@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{ $order->id }}</td>       
                                 <td><b class="label label-{{ ($order->status ? 'success' : 'danger') }}">{{ ($order->status ? 'Проверено' : 'Не проверено') }}</b></td>                 
-                                <td>{{ $order->created }}</td>            
+                                <td>{{ $order->created_at }}</td>
                                 <td>{{ $order->user_name }}</td>            
                                 <td>{{ $order->user_contact }}</td>            
                                 <td>{{ $order->user_info }}</td>            

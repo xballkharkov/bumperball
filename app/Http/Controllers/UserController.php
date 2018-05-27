@@ -26,7 +26,7 @@ class UserController extends Controller
         $user = \Auth::User();
         if ($user AND $user->id AND $user->isAdmin())
         {
-            $xorders = DB::table('xorders')->orderby('created', 'DESC')->get();
+            $xorders = DB::table('xorders')->orderby('created_at', 'DESC')->get();
             return view('xorder.list', [
                 'xorders' => $xorders 
             ]);
