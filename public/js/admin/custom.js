@@ -8,8 +8,8 @@
             [ 0, "desc" ]
         ],
         'info'        : true,
-        'autoWidth'   : false
-    })
+        'autoWidth'   : false,
+    });
     
     function getCsrf(){
         return $('meta[name="csrf-token"]').prop('content'); 
@@ -33,9 +33,21 @@
             }
         });
     });
-    
+
     //Replace the <textarea id="editorContent"> with a CKEditor
     // instance, using default configuration. 
     //CKEDITOR.replace('editorContent');
     $('.editorContent').wysihtml5()
+
+     $('.datepicker').datetimepicker({
+         format: 'YYYY-MM-DD HH:mm:ss',
+         weekStart: 0,
+         calendarWeeks: true,
+         autoclose: true,
+         todayHighlight: true,
+         rtl: true,
+         orientation: "auto"
+     });
+
+     $('.select2').select2();
 });
