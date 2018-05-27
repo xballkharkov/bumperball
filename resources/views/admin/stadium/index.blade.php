@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.admin')
 
 @section('title', 'Стадионы')
 
@@ -7,24 +7,40 @@
 @stop
 
 @section('content')
-    <table class="table table-bordered table-striped dataTable table-hover no-footer">
-        <thead>
-        <tr>
-            <td>ID</td>            
-            <td>Name</td>            
-            <td>Address</td>            
-            <td>Phone</td>            
-            <td>Site</td>            
-        </tr>
-        </thead>
-        @foreach ($list as $stadium)
-            <tr>
-                <td>{{ $stadium->id }}</td>            
-                <td>{{ $stadium->name }}</td>            
-                <td>{{ $stadium->address }}</td>            
-                <td>{{ $stadium->phone }}</td>            
-                <td>{{ $stadium->site }}</td>            
-            </tr>
-        @endforeach
-    </table>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <table id="stadiumIndex" class="table table-bordered table-hover defaultIndexTable">
+                        <thead>
+                            <tr>
+                                <td>ID</td>            
+                                <td>Status</td>            
+                                <td>Name</td>            
+                                <td>Address</td>            
+                                <td>Phone</td>            
+                                <td>Site</td>            
+                                <td></td>            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($list as $stadium)
+                                <tr>
+                                    <td>{{ $stadium->id }}</td>            
+                                    <td><b class="label label-{{ ($stadium->status ? 'success' : 'danger') }}">{{ ($stadium->status ? 'Активен' : 'Не активен') }}</b></td>            
+                                    <td>{{ $stadium->name }}</td>            
+                                    <td>{{ $stadium->address }}</td>            
+                                    <td>{{ $stadium->phone }}</td>            
+                                    <td>{{ $stadium->site }}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm ad-click-event" href="{{ route('admin.stadiumEdit', ['id' => $stadium->id]) }}">Edit</a>
+                                    </td>           
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
