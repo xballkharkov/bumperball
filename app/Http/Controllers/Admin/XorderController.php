@@ -16,7 +16,7 @@ class XorderController extends Controller
     
     public function index(Request $request)
     {
-        $xorders = Xorder::orderby('created', 'DESC')->get();
+        $xorders = Xorder::orderby('created_at', 'DESC')->get();
 
         return view('admin.xorder.index', [
             'xorders' => $xorders 

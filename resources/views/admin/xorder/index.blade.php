@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{ $order->id }}</td>       
                                 <td><b class="label label-{{ ($order->status ? 'success' : 'danger') }}">{{ ($order->status ? 'Проверено' : 'Не проверено') }}</b></td>                 
-                                <td>{{ $order->created }}</td>            
+                                <td>{{ $order->created_at }}</td>
                                 <td>{{ $order->user_name }}</td>            
                                 <td>{{ $order->user_contact }}</td>            
                                 <td>{{ $order->user_info }}</td>            
