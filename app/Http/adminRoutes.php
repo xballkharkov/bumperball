@@ -16,3 +16,9 @@ Route::delete('xorder/delete/{id}', 'Admin\XorderController@delete')->name('admi
 Route::get('stadiums', ['uses' => 'Admin\StadiumController@index'])->name('admin.stadiums');
 Route::get('stadium/edit/{id}', ['uses' => 'Admin\StadiumController@edit'])->name('admin.stadiumEdit');
 Route::put('stadium/save/{id}', 'Admin\StadiumController@save')->name('admin.stadiumSave');
+
+Route::get('orders', ['uses' => 'Admin\OrdersController@index'])->name('admin.orders');
+Route::get('order/add', ['uses' => 'Admin\OrdersController@add'])->name('admin.orderAdd');
+Route::get('order/edit/{id}', ['uses' => 'Admin\OrdersController@edit'])->name('admin.orderEdit');
+Route::put('order/save/{id}', 'Admin\OrdersController@save')->name('admin.orderSave');
+Route::delete('order/delete/{id}', 'Admin\OrdersController@delete')->name('admin.orderDelete');

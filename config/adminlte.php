@@ -118,8 +118,11 @@ return [
             'text'        => 'Стадионы',
             'url'         => 'admin/stadiums',
             'icon'        => 'futbol-o',
-            /*'label'       => 4,
-            'label_color' => 'success',*/
+        ],
+        [
+            'text'        => 'Заказы',
+            'url'         => 'admin/orders',
+            'icon'        => 'shopping-bag',
         ],
         //'ACCOUNT SETTINGS',
         /*[
@@ -218,7 +221,7 @@ return [
 
     'plugins' => [
         'datatables' => true,
-        /*'select2'    => true,
-        'chartjs'    => true,  */
+        'select2'    => true,
+        /*'chartjs'    => true,  */
     ],
 ];

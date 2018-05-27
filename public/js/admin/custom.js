@@ -8,8 +8,11 @@
             [ 0, "desc" ]
         ],
         'info'        : true,
-        'autoWidth'   : false
-    })
+        'autoWidth'   : false,
+        'buttons': [
+            'copy', 'excel', 'pdf'
+        ]
+    });
     
     function getCsrf(){
         return $('meta[name="csrf-token"]').prop('content'); 
@@ -32,5 +35,17 @@
                 }
             }
         });
-    })
+    });
+
+     $('.datepicker').datetimepicker({
+         format: 'YYYY-MM-DD HH:mm:ss',
+         weekStart: 0,
+         calendarWeeks: true,
+         autoclose: true,
+         todayHighlight: true,
+         rtl: true,
+         orientation: "auto"
+     });
+
+     $('.select2').select2();
 });

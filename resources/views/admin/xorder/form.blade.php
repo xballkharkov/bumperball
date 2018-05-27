@@ -42,7 +42,7 @@
     <div class="row">
         <div class="col-sm-offset-2 col-sm-10">
             {!! Form::button( 'Save', ['type' => 'submit', 'class' => 'btn btn-success save-link-button']) !!}
-            <a class="btn btn-default" href="{{ route('admin.stadiums') }}">Cancel</a>
+            <a class="btn btn-default" href="{{ route('admin.xorders') }}">Cancel</a>
         </div>
     </div>
 </div>
