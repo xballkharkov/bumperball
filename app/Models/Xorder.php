@@ -8,6 +8,8 @@ class Xorder extends Model
 {
     public $timestamps = false;
     
+    protected $fillable = ['status', 'user_name', 'user_contact', 'user_info'];
+    
     public function save(array $options = [])
     {
         if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet

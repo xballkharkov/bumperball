@@ -21,4 +21,35 @@ class StadiumController extends Controller
             'list' => $list 
         ]);
     }
+    
+    public function edit($id, Request $request)
+    {
+        $stadium = Stadium::find($id);
+
+        return view('admin.stadium.edit', [
+            'stadium' => $stadium
+        ]);
+    }
+    
+    public function save($id, Request $request)
+    {
+        $stadium = Stadium::find($id);
+        
+        $data = $request->all();
+        if (isset($data['status'])) {
+            $data['status'] = 1;
+        } else {
+            $data['status'] = 0;
+        }
+        
+        $stadium->fill($data);
+        if (!$stadium->save()) {
+            return redirect()->route('admin.stadiums')
+                ->withInput()
+                ->with('notifications', ['type' => 'error', 'message' => 'Save error']);
+        } else {
+            return redirect()->route('admin.stadiums')
+                ->with('notifications', ['type' => 'success', 'message' => 'Has been saved']);
+        }
+    }
 }

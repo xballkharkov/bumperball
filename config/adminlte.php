@@ -110,14 +110,14 @@ return [
     'menu' => [
         //'MAIN NAVIGATION',
         [
-            'text' => 'Заказы',
+            'text' => 'Callback',
             'url'  => 'admin/xorders',
             'icon'  => 'list',
         ],
         [
             'text'        => 'Стадионы',
             'url'         => 'admin/stadiums',
-            'icon'        => 'file',
+            'icon'        => 'futbol-o',
             /*'label'       => 4,
             'label_color' => 'success',*/
         ],
