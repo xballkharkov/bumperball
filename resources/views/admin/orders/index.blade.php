@@ -35,7 +35,7 @@
                                 <td>Ст. Стадиона</td>
                                 <td>Ст. съемки</td>
                                 <td>Инфо</td>
-                                <td></td>
+                                <td width="1"></td>
                             </tr>
                         </thead>
                         <tbody>

@@ -20,7 +20,7 @@
                                 <td>Address</td>            
                                 <td>Phone</td>            
                                 <td>Site</td>            
-                                <td></td>            
+                                <td width="1"></td>
                             </tr>
                         </thead>
                         <tbody>

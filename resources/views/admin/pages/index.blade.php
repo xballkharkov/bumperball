@@ -17,7 +17,7 @@
                                 <td>ID</td>            
                                 <td>Alias</td>            
                                 <td>Title</td>                      
-                                <td></td>            
+                                <td width="1"></td>
                             </tr>
                         </thead>
                         <tbody>

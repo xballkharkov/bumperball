@@ -20,7 +20,7 @@
                                 <td>User Name</td>            
                                 <td>User Contact</td>            
                                 <td>User Info</td>            
-                                <td></td>            
+                                <td width="1"></td>
                             </tr>
                         </thead>
                         <tbody>
