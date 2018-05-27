@@ -1,8 +1,8 @@
 @extends('layouts.public')
 
-@section('title', 'Контакты')
-@section('description', 'Контакты Xball')
-@section('keywords', 'контакты bumperball харьков')
+@section('title', $meta['title'])
+@section('description', $meta['description'])
+@section('keywords', $meta['keywords'])
 
 @section('content')
     <!--Main-->
@@ -11,20 +11,15 @@
             <div class="container">
                 <ol class="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
                     <li typeof="v:Breadcrumb"><a href="/" rel="v:url" property="v:title"><i class="ion-ios-home-outline"></i> Главная</a></li>
-                    <li typeof="v:Breadcrumb" class="active"><a href="#" rel="v:url" property="v:title">Контакты</a></li>
+                    <li typeof="v:Breadcrumb" class="active"><a href="#" rel="v:url" property="v:title">{{ $meta['h1'] }}</a></li>
                 </ol>
                 <div class="page-header clearfix">
-                    <h1 class="name pull-left">Контакты</h1>
+                    <h1 class="name pull-left">{{ $meta['h1'] }}</h1>
                 </div>
                 <div class="row">
                     <div class="col-xs-6"> 
                         <br/>               
-                        <p>г. Харьков</p>
-                        <p>
-                            <b>Контактные телефоны:</b><br/>
-                            0994059722, 0734823238 - Николай  <br/>
-                            0995087807 - Руслан
-                        </p>
+                        {!! $meta['content'] !!}
                     </div>
                 </div>
             </div>
