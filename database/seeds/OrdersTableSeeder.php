@@ -11,7 +11,7 @@ class OrdersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('xorders')->insert([
+        DB::table('orders')->insert([
             [
                 'user_name' => 'Колян - проставь',
                 'user_phone' => 'Колян - проставь',
