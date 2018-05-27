@@ -8,11 +8,13 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "gloudemans/shoppingcart": "^2.1",
-        "jeroennoten/laravel-adminlte": "^1.23"
+        "jeroennoten/laravel-adminlte": "^1.23",
+        "laravelcollective/html": "^5.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*"
+        "mockery/mockery": "0.9.*",
+        "barryvdh/laravel-ide-helper": "^2.2"
     },
     "autoload": {
         "classmap": [

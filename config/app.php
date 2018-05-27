@@ -147,6 +147,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Vendor Service Providers...
@@ -206,7 +207,7 @@ return [
          * Vendor Service Providers...
          */
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
-        
+        'Form'      => Collective\Html\FormFacade::class, 
+        'Html'      => Collective\Html\HtmlFacade::class
     ],
-
 ];
