@@ -30,8 +30,8 @@ class OrderController extends Controller
                 
                 if ($order->save())
                 {
-                    $text = "New order on Xball from " . $user_contact;
-                    SendSMS::send($text);
+                    $text = "New game on Xball from " . $user_contact;
+                    SendSMS::send($text);   
                     
                     echo json_encode([
                         'status'    => 'success',
@@ -42,9 +42,9 @@ class OrderController extends Controller
             } 
             
             echo json_encode([
-                    'status'    => 'error',
-                    'message'   => 'Произошла ошибка, проверте все введенные данные'  
-                ]); 
+                'status'    => 'error',
+                'message'   => 'Произошла ошибка, проверте все введенные данные'  
+            ]); 
         }
         
         exit;
